@@ -1,0 +1,36 @@
+name: "GoKart Scanner"
+description: "Scan your code with GoKart to finds vulnerabilities using the SSA (single static assignment) form of Go source code."
+author: "Dwi Siswanto"
+
+branding:
+  icon: "check"
+  color: "green"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+inputs:
+  directory:
+    description: "scan on a Go module in the directory"
+    required: false
+    default: "."
+  input:
+    description: "input path to custom yml file"
+    required: false
+  output:
+    description: "file path to write findings output"
+    required: true
+    default: "results"
+  globalsTainted:
+    description: "marks global variables as dangerous"
+    required: false
+  remoteModule:
+    description: "Remote gomodule to scan"
+    required: false
+  debug:
+    description: "outputs debug logs"
+    required: false
+  verbose:
+    description: "outputs full trace of taint analysis"
+    required: false
