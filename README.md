@@ -19,9 +19,6 @@ on:
   schedule:
     - cron: 0 0 * * *
 
-env:
-  GOKART_OUTPUT: "output.sarif"
-
 jobs:
   gokart:
     name: GoKart scanner
@@ -37,12 +34,9 @@ jobs:
       uses: kitabisa/gokart-action@v1
       with:
         globalsTainted: true
-        output: ${{ env.GOKART_OUTPUT }}
 
     - name: Upload GoKart results
       uses: github/codeql-action/upload-sarif@v1
-      with:
-        sarif_file: ${{ env.GOKART_OUTPUT }}
 ```
 
 You can change the analysis base directory and/or analyzer config by using optional input like this:
