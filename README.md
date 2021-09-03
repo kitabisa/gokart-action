@@ -24,6 +24,7 @@ jobs:
     name: GoKart scanner
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       security-events: write
 
     steps:
