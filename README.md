@@ -31,7 +31,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Run GoKart
-      uses: kitabisa/gokart-action@v1
+      uses: kitabisa/gokart-action@v1.0.0
       with:
         globalsTainted: true
 
