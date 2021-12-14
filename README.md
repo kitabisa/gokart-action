@@ -35,9 +35,12 @@ jobs:
       uses: kitabisa/gokart-action@v1.0.0
       with:
         globalsTainted: true
+        output: results.sarif
 
     - name: Upload GoKart results
       uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: results.sarif
 ```
 
 You can change the analysis base directory and/or analyzer config by using optional input like this:
