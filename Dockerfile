@@ -10,7 +10,7 @@ LABEL repository="https://github.com/selesy/gokart-action"
 
 ARG version="v0.2.0"
 ENV CGO_ENABLED=0
-RUN go install github.com/selesy/gokart-pre
+RUN go install github.com/selesy/gokart-pre@latest
 RUN apk add --no-cache bash findutils
 COPY entrypoint.sh /bin/entrypoint
 RUN chmod +x /bin/entrypoint
