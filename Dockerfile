@@ -10,8 +10,13 @@ LABEL repository="https://github.com/selesy/gokart-action"
 
 ARG version="v0.2.0"
 ENV CGO_ENABLED=0
+WORKDIR /
+RUN mkdir junk
+WORKDIR /junk
 RUN go mod init example.com/junk
-RUN go install github.com/selesy/gokart-pre@v0.5.2-rc1
+RUN go mod tidy
+RUN go get github.com/selesy/gokart-pre@v0.5.2-rc1
+RUN go install github.com/selesy/gokart-pre
 RUN apk add --no-cache bash findutils
 COPY entrypoint.sh /bin/entrypoint
 RUN chmod +x /bin/entrypoint
